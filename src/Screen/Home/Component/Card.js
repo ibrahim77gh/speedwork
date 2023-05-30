@@ -83,19 +83,8 @@ const Card = (props) => {
 
             <img className={classes.prodctImage} src={props?.image} alt="Product Image" />
 
-            <Box
-                mx={3}
-                component="div"
-                sx={{
-                    whiteSpace: 'nowrap',
-                    width: { xs: '150px', sm: 'auto' },
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    my: 1,
-                }}
-            >
-                <Typography variant='h5' style={{ margin: '10px 0px', color: 'Black', fontWeight: 'bold', textOverflow:'ellipsis'}}  >{props?.name}</Typography>
-
+            <Box>
+                <Typography variant='h5' style={{ margin: '10px 0px', color: 'Black', fontWeight: 'bold', textOverflow:'ellipsis', textAlign:'center'}}  >{props?.name}</Typography>
             </Box>
             <Box>
                 <Typography style={{ margin: '10px 0px', fontSize: '16px',textAlign:'center',color:'gray', textOverflow:'ellipsis' }}  >{props?.description}</Typography>
