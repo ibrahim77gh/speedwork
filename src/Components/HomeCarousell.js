@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     sliderImage: {
-        height: '500px',
+        height: '100%',
         width:'100%',
         objectFit:'cover',
         maxWidth: '100%',

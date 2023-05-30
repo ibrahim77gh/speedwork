@@ -103,16 +103,16 @@ function SectionOne({uidState, currentUser}){
                 id="outlined-basic"
                 label="Search"
                 variant="outlined"
-                style={{ width: '700px' }}
+                style={{ width: '700px', }}
                 InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
-                    <IconButton edge="end" size='large' aria-label="search" style={{ backgroundColor: 'red' }}>
+                    <IconButton edge="end" size='large' aria-label="search">
                         <SearchIcon sx={{color:'white'}}/>
                     </IconButton>
                     </InputAdornment>
                 ),
-                style: { borderRadius: '20px', backgroundColor: 'white' },
+                style: { borderRadius: '20px', backgroundColor: 'white', },
                 inputProps: {
                     style: { borderRadius: '20px', backgroundColor: 'white' },
                 },
@@ -171,9 +171,12 @@ function SectionTwo(){
             <Button onClick={() => navigate('/contact')}>
                 <Typography color='black' variant='h6'>Contact</Typography> 
             </Button>
+            
         </Stack>
     )
 }
+
+
 
 function ResponsiveDrawer(props) {
     
@@ -196,6 +199,14 @@ function ResponsiveDrawer(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    function logout (){
+        localStorage.removeItem('token')
+        localStorage.removeItem('uid')
+        localStorage.clear();
+        setUid(null);
+        navigate('/')
+    }
+
     React.useEffect(() => {
         // getCategories();
         if (uid) {
@@ -208,59 +219,30 @@ function ResponsiveDrawer(props) {
 
 
     const drawer = (
-        <div style={{ height: 'inherit', position: 'relative', display: 'flex', flexDirection: 'column' }} >
+        <div style={{ height: 'inherit', position: 'relative', display: { xs: 'flex', sm:'flex', md: 'none', lg:'none' }, flexDirection: 'column' }} >
             <Toolbar />
             <Divider />
-            <List style={{ marginTop: '10px', padding: '0px 10px' }} >
-                <ListItem sx={{ display: { xs: 'block', sm: 'none' } }} >
-                    <img className={classes.logo} src={logo} onClick={() => navigate('/')} />
-                </ListItem>
-                <ListItem >
-                    <Typography style={{ fontWeight: 'bold', textTransform: 'uppercase', color: "#FF0000" }} variant="h5" >Category</Typography>
-                </ListItem>
-                {categories?.map((name, index) => {
-                    return (
-                        <ListItem className={catId === index ? classes.selectedListItem : classes.notSelectedListItem} key={index} onClick={() => {
-                            // setCatId(index)
-                        }
-                        }
-                        // className={catId == _id ? classes.selectedListItem : null}
-                        >
-
-                            <p style={{ fontSize: '16px', fontWeight: 'bold' }} >
-                                {name}
-                            </p>
-                        </ListItem>
-                    )
-                }
-                )}
-            </List>
-            <List style={{ marginBottom: '0px', position: 'fixed', width: drawerWidth, bottom: 0, backgroundColor: '#F7F7F7', borderTop: '1px solid #D9D9D9', borderRight: "1px solid #D9D9D9" }} >
-                {/* <ListItem button onClick={() => navigate('/my-orders')} >
-                    <ListItemIcon>
-                        <HistoryIcon />
-                    </ListItemIcon>
-                    <ListItemText primary='Previous Orders' />
-                </ListItem> */}
-                {(localStorage.getItem('uid') || uidState) ? <ListItem button onClick={() => {
-                    localStorage.removeItem('token')
-                    localStorage.removeItem('uid')
-                    localStorage.clear();
-                    setUid(null);
-                    navigate('/')
-
-                }} >
-                    <ListItemIcon style={{ color: 'red' }} >
-                        <LogoutIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Logout" />
-                </ListItem> : <ListItem button onClick={() => navigate('/login')} >
-                    <ListItemIcon style={{ color: 'red' }}  >
-                        <LoginIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="LogIn" />
-                </ListItem>}
-            </List>
+            <Stack >
+                <Button onClick={() => navigate('/')}>
+                    <Typography color='black' variant='h6'>Home</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/shop')}>
+                    <Typography color='black' variant='h6'>Shop</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/privacy-policy')}>
+                    <Typography color='black' variant='h6'>Privacy Policy</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/terms-and-conditions')}>
+                    <Typography color='black' variant='h6'>Terms and Conditions</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/contact')}>
+                    <Typography color='black' variant='h6'>Contact</Typography> 
+                </Button>
+                <Button onClick={() => logout()}>
+                    <Typography color='black' variant='h6'>Logout</Typography> 
+                </Button>
+            </Stack>
+            
         </div>
     );
 
@@ -271,15 +253,21 @@ function ResponsiveDrawer(props) {
             <CssBaseline />
             <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: '#F7F7F7' }}>
                 <Toolbar style={{ display: 'flex'}} alignItems='center'>
-                    {!props?.hideDrawer && <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' }, color: '#FE0000' }}
-                    >
-                        <MenuIcon />
-                    </IconButton>}
+                    {!props?.hideDrawer && 
+                    <Stack sx={{ display: { md: 'none' }}} direction='row' justifyContent="space-between">
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, color: '#FE0000' }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <img style={{edge:'end', objectFit:'cover', height:'40px', margin: '5px', cursor: 'pointer' }} src={logo} />
+                        
+                    </Stack>
+                    }
 
                     <Stack width='100%' spacing={2}>
                         <SectionOne uidState={uidState} currentUser={currentUser}/>
@@ -289,6 +277,29 @@ function ResponsiveDrawer(props) {
 
                 </Toolbar>
             </AppBar>
+            {!props?.hideDrawer && <Box
+                component="nav"
+                sx={{ flexGrow: 1, width: '100%' }} 
+                aria-label="mailbox folders"
+            >
+                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                <Drawer
+                    container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { xs: 'block', sm: 'block' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: '#F7F7F7' },
+                    }}
+                >
+                    {drawer}
+                </Drawer>
+                
+            </Box>}
             
             <Box
                 component="main"

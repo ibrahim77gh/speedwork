@@ -94,11 +94,11 @@ const Card = (props) => {
                     my: 1,
                 }}
             >
-                <Typography variant='h5' style={{ margin: '10px 0px', color: 'Black', fontWeight: 'bold' }}  >{props?.name}</Typography>
+                <Typography variant='h5' style={{ margin: '10px 0px', color: 'Black', fontWeight: 'bold', textOverflow:'ellipsis'}}  >{props?.name}</Typography>
 
             </Box>
             <Box>
-                <Typography style={{ margin: '10px 0px', fontSize: '16px',textAlign:'center',color:'gray' }}  >{props?.description}</Typography>
+                <Typography style={{ margin: '10px 0px', fontSize: '16px',textAlign:'center',color:'gray', textOverflow:'ellipsis' }}  >{props?.description}</Typography>
             </Box>
             {/* <Box style={{ margin: '0px 24px' }} >
                 {props?.discount == 0 && <Typography variant="h6" className={classes.price} >

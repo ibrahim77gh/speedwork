@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const Hero = ({name}) => {
   return (
     <>
-        <Stack height={200} width='100%'></Stack>
+        <Stack sx={{ display: { xs: 'none', md: 'flex' }}} height={200} width='100%'></Stack>
         <Stack spacing={2} bgcolor='black' justifyContent='center' alignItems='center' height={300} width='100%'>
             <Typography variant='h2' color='white'>
                 {name}

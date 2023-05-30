@@ -76,7 +76,7 @@ const Home = ({
 
     return (
         < >
-            <Stack paddingX={15}>
+            <Stack paddingX={10}>
             <Grid container >
                 {(productLoading) ?
                     <Box style={{ width: '100%', height: '500px', display: 'flex',flexFlow:'column' ,justifyContent: 'center', alignItems: 'center' }} >

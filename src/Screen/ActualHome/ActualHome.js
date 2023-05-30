@@ -25,8 +25,8 @@ const ActualHome = () => {
 
   return (
     <>
-        <Stack height={200} width='100%'></Stack>
-        <Stack px={15} xs={12} className={classes.carousellcontnr}  >
+        <Stack sx={{ display: { xs: 'none', md: 'flex' }}} height={200} width='100%'></Stack>
+        <Stack px={5} xs={12} className={classes.carousellcontnr}  >
             <HomeCarousell />
             <Divider />
         </Stack>

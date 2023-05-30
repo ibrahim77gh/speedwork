@@ -26,10 +26,12 @@ import Privacy from "../Screen/Privacy/Privacy";
 import Contact from "../Screen/Contact/Contact";
 import ReturnPolicy from "../Screen/ReturnPolicy/ReturnPolicy";
 import Shop from "../Screen/Shop/Shop";
+import AddProduct from "../Screen/AddProduct/AddProduct";
 
 
 
 const authRoutesArr = [
+  
   {
     path: "/checkout",
     Component: Checkout,
@@ -95,6 +97,11 @@ const routesArr = [
   {
     path: "/product/:id",
     Component: Product,
+    hideDrawer: true
+  },
+  {
+    path: "/add-product",
+    Component: AddProduct,
     hideDrawer: true
   },
   {
