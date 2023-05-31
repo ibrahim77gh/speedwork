@@ -207,9 +207,6 @@ function ResponsiveDrawer(props) {
                 <Button onClick={() => navigate('/add-product')}>
                     <Typography color='black' variant='h6'>Add Product</Typography> 
                 </Button>
-                <Button onClick={() => logout()}>
-                    <Typography color='black' variant='h6'>Logout</Typography> 
-                </Button>
             </Stack>
         )
     }

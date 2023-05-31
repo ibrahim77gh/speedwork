@@ -54,15 +54,20 @@ const styles = makeStyles((theme) => ({
     }
 }));
 
-
 const Footer = () => {
     const classes = styles();
     const navigate = useNavigate();
     const location = useLocation();
 
+    function logout (){
+        localStorage.removeItem('token')
+        localStorage.removeItem('uid')
+        localStorage.clear();
+        navigate('/')
+    }
 
     return (
-        <Stack width='100vw' py={5} bgcolor='#222' justifyContent='space-evenly' direction={{ sm: 'column', md: 'row' }} paddingTop={5} alignItems='center'>
+        <Stack width='100vw' py={5} bgcolor='#222' justifyContent='space-evenly' direction={{ sm: 'column', md: 'row' }} paddingTop={5} alignItems='flex-start'>
             <img style={{ objectFit:'cover', height:'100px', margin: '5px', cursor: 'pointer' }} src={logo} />
             <Stack width={150} alignItems='center' spacing={3}>
                 <Typography variant='h5' color='white'>Social Media</Typography>
@@ -86,8 +91,11 @@ const Footer = () => {
                 <Button onClick={() => navigate('/contact')}>
                     <Typography color='grey' >Contact</Typography> 
                 </Button>
+                <Button onClick={() => logout()}>
+                    <Typography color='grey' >Logout</Typography> 
+                </Button>
             </Stack>
-            <Stack width={150} alignItems='center' my={5} spacing={3}>
+            <Stack width={150} alignItems='center' spacing={3}>
                 <Typography variant='h5' color='white'>My Account</Typography>
                 <Typography color='grey'>Cart</Typography>
                 <Typography color='grey'>Checkout</Typography>
