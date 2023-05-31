@@ -69,7 +69,7 @@ const Footer = () => {
     return (
         <Stack width='100vw' py={5} bgcolor='#222' justifyContent='space-evenly' direction={{ sm: 'column', md: 'row' }} paddingTop={5} alignItems={{ xs: 'center', sm: 'center', md: 'flex-start' }}>
             <img style={{ objectFit:'cover', height:'100px', margin: '5px', cursor: 'pointer' }} src={logo} />
-            <Stack width={150} alignItems='center' spacing={3}>
+            <Stack width={150} alignItems='center' spacing={3} py={{xs:'40px', sm:'40px', md:'0px'}}>
                 <Typography variant='h5' color='white'>Social Media</Typography>
                 <a href="https://www.facebook.com/speedworksperformance?_ga=2.163110076.1477238817.1684264712-943521976.1684264712"><FacebookIcon/></a>
                 <a href="https://www.instagram.com/speedworksperformance/?hl=en&_ga=2.103520000.1477238817.1684264712-943521976.1684264712"><InstagramIcon/></a>
@@ -95,7 +95,7 @@ const Footer = () => {
                     <Typography color='grey' >Logout</Typography> 
                 </Button>
             </Stack>
-            <Stack width={150} alignItems='center' spacing={3}>
+            <Stack width={150} alignItems='center' spacing={3} pt={{xs:'40px', sm:'40px', md:'0px'}}>
                 <Typography variant='h5' color='white'>My Account</Typography>
                 <Typography color='grey'>Cart</Typography>
                 <Typography color='grey'>Checkout</Typography>
