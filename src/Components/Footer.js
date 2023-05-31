@@ -67,7 +67,7 @@ const Footer = () => {
     }
 
     return (
-        <Stack width='100vw' py={5} bgcolor='#222' justifyContent='space-evenly' direction={{ sm: 'column', md: 'row' }} paddingTop={5} alignItems={{ sm: 'center', md: 'flex-start' }}>
+        <Stack width='100vw' py={5} bgcolor='#222' justifyContent='space-evenly' direction={{ sm: 'column', md: 'row' }} paddingTop={5} alignItems={{ xs: 'center', sm: 'center', md: 'flex-start' }}>
             <img style={{ objectFit:'cover', height:'100px', margin: '5px', cursor: 'pointer' }} src={logo} />
             <Stack width={150} alignItems='center' spacing={3}>
                 <Typography variant='h5' color='white'>Social Media</Typography>
