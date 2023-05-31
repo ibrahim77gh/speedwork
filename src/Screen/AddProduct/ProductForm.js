@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
         },
 
     },
+    image:{
+        marginTop:'20px',
+    },
     center: {
         display: "flex",
         justifyContent: 'center',
@@ -48,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Message = () => {
+const ProductForm = () => {
     const classes = useStyles();
 
 
@@ -69,47 +72,31 @@ const Message = () => {
             <div>
                 <Grid container>
                     <Grid className={classes.center} item xs={12}>
-                        <Typography variant="h3" className={classes.head} >Send Message</Typography>
+                        <Typography variant="h3" className={classes.head} >Add Product</Typography>
                     </Grid>
                     <Grid item className={classes.center} xs={12}>
                             <OutlinedInput
-                                placeholder="First Name"
-                                className={classes.filed}
                                 required
-                                name="first-name"
+                                className={classes.image}
+                                type='file'
+                                name="image"
                             />
                     </Grid>
                     <Grid item className={classes.center} xs={12}>
                             <OutlinedInput
-                                placeholder="last Name"
+                                placeholder="Product Name"
                                 className={classes.filed}
                                 required
-                                name="last-name"
+                                name="name"
                             />
                     </Grid>
                     <Grid item className={classes.center} xs={12}>
-                        {/* <TextField label="Your email address" type="email" className={classes.filed} style={{backgroundColor:"white",borderRadius:"10px"}} variant="filled" /> */}
-                        <OutlinedInput
-                            required
-                            placeholder="Your email address"
-                            className={classes.filed}
-                            //   style={{backgroundColor:"white",borderRadius:"10px"}} 
-                            // onChange={e => setEmail(e.target.value)}
-                            // value={email}
-                            name="email"
-                        />
-                    </Grid>
-                    <Grid item className={classes.center} xs={12}>
-                        {/* <TextField label="Your email address" type="email" className={classes.filed} style={{backgroundColor:"white",borderRadius:"10px"}} variant="filled" /> */}
-                        <OutlinedInput
-                            required
-                            placeholder="Subject"
-                            className={classes.filed}
-                            //   style={{backgroundColor:"white",borderRadius:"10px"}} 
-                            // onChange={e => setEmail(e.target.value)}
-                            // value={email}
-                            name="subject"
-                        />
+                            <OutlinedInput
+                                placeholder="Price"
+                                className={classes.filed}
+                                required
+                                name="price"
+                            />
                     </Grid>
                     <Grid item className={classes.center} xs={12}>
                         {/* <TextField label="What are you looking for?" type="text" className={classes.filed} style={{backgroundColor:"white",borderRadius:"10px"}} variant="filled" /> */}
@@ -117,11 +104,11 @@ const Message = () => {
                             required
                             multiline
                             rows={5}
-                            placeholder="What are you looking for?"
+                            placeholder="Description"
                             className={`${classes.filed} ${classes.multiline}`}
                             // onChange={e => setMessage(e.target.value)}
                             // value={message}
-                            name="message"
+                            name="description"
                         />
                     </Grid>
                     <Grid item className={classes.center} xs={12}>
@@ -133,4 +120,4 @@ const Message = () => {
     )
 }
 
-export default Message
+export default ProductForm

@@ -29,7 +29,6 @@ import Shop from "../Screen/Shop/Shop";
 import AddProduct from "../Screen/AddProduct/AddProduct";
 
 
-
 const authRoutesArr = [
   
   {

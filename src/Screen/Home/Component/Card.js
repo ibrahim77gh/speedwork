@@ -23,10 +23,10 @@ const styles = makeStyles((theme) => ({
     },
     productCard: {
         borderRadius: '25px',
-        height: '350px',
+        // height: '350px',
         margin: '10px 10px',
         backgroundColor: 'white',
-        padding: '0px',
+        paddingTop: '20px',
         cursor: 'pointer',
         transition: 'transform .2s',
         display: 'flex',

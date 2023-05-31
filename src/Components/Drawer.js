@@ -107,7 +107,7 @@ function SectionOne({uidState, currentUser}){
                 InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
-                    <IconButton edge="end" size='large' aria-label="search">
+                    <IconButton style={{ backgroundColor: 'red' }} edge="end" size='large' aria-label="search">
                         <SearchIcon sx={{color:'white'}}/>
                     </IconButton>
                     </InputAdornment>
@@ -152,29 +152,7 @@ function SectionOne({uidState, currentUser}){
     )
 }
 
-function SectionTwo(){
-    const navigate = useNavigate();
-    return(
-        <Stack spacing={5} py={2} width='100%' alignItems='center' direction='row' justifyContent='center' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Button onClick={() => navigate('/')}>
-                <Typography color='black' variant='h6'>Home</Typography> 
-            </Button>
-            <Button onClick={() => navigate('/shop')}>
-                <Typography color='black' variant='h6'>Shop</Typography> 
-            </Button>
-            <Button onClick={() => navigate('/privacy-policy')}>
-                <Typography color='black' variant='h6'>Privacy Policy</Typography> 
-            </Button>
-            <Button onClick={() => navigate('/terms-and-conditions')}>
-                <Typography color='black' variant='h6'>Terms and Conditions</Typography> 
-            </Button>
-            <Button onClick={() => navigate('/contact')}>
-                <Typography color='black' variant='h6'>Contact</Typography> 
-            </Button>
-            
-        </Stack>
-    )
-}
+
 
 
 
@@ -207,6 +185,35 @@ function ResponsiveDrawer(props) {
         navigate('/')
     }
 
+    function SectionTwo(){
+        // const navigate = useNavigate();
+        return(
+            <Stack spacing={5} py={2} width='100%' alignItems='center' direction='row' justifyContent='center' sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                <Button onClick={() => navigate('/')}>
+                    <Typography color='black' variant='h6'>Home</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/shop')}>
+                    <Typography color='black' variant='h6'>Shop</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/privacy-policy')}>
+                    <Typography color='black' variant='h6'>Privacy Policy</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/terms-and-conditions')}>
+                    <Typography color='black' variant='h6'>Terms and Conditions</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/contact')}>
+                    <Typography color='black' variant='h6'>Contact</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/add-product')}>
+                    <Typography color='black' variant='h6'>Add Product</Typography> 
+                </Button>
+                <Button onClick={() => logout()}>
+                    <Typography color='black' variant='h6'>Logout</Typography> 
+                </Button>
+            </Stack>
+        )
+    }
+
     React.useEffect(() => {
         // getCategories();
         if (uid) {
@@ -237,6 +244,9 @@ function ResponsiveDrawer(props) {
                 </Button>
                 <Button onClick={() => navigate('/contact')}>
                     <Typography color='black' variant='h6'>Contact</Typography> 
+                </Button>
+                <Button onClick={() => navigate('/add-product')}>
+                    <Typography color='black' variant='h6'>Add Product</Typography> 
                 </Button>
                 <Button onClick={() => logout()}>
                     <Typography color='black' variant='h6'>Logout</Typography> 
