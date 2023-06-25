@@ -91,6 +91,9 @@ const Footer = () => {
                 <Button onClick={() => navigate('/contact')}>
                     <Typography color='grey' >Contact</Typography> 
                 </Button>
+                <Button onClick={() => navigate('/adminLogin')}>
+                    <Typography color='grey' >Add Product</Typography> 
+                </Button>
                 <Button onClick={() => logout()}>
                     <Typography color='grey' >Logout</Typography> 
                 </Button>

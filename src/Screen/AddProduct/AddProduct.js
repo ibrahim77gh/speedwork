@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     Grid,
     Box,
@@ -46,10 +46,16 @@ const styles = makeStyles((theme) => ({
 const AddProduct = () => {
     const classes = styles();
     const navigate = useNavigate();
-
+    const access = localStorage.getItem("addProductAccess")
     const goBack = () => {
         navigate('/')
     }
+
+    useEffect(()=> {
+        if(!access){
+            navigate("/")
+        }
+    }, [access])
 
     return (
         <>

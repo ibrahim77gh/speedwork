@@ -27,6 +27,7 @@ import Contact from "../Screen/Contact/Contact";
 import ReturnPolicy from "../Screen/ReturnPolicy/ReturnPolicy";
 import Shop from "../Screen/Shop/Shop";
 import AddProduct from "../Screen/AddProduct/AddProduct";
+import AdminSignIn from "../Screen/AdminLogin/ALogin";
 
 
 const authRoutesArr = [
@@ -56,6 +57,12 @@ const authRoutesArr = [
   {
     path: "/login",
     Component: Login,
+    hideDrawer: true,
+    hideFooter: true
+  },
+  {
+    path: "/adminLogin",
+    Component: AdminSignIn,
     hideDrawer: true,
     hideFooter: true
   },
